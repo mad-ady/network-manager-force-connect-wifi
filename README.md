@@ -1,8 +1,13 @@
 # network-manager-force-connect-wifi
-Script that will force network manager to connect to a known wifi (connection needs to be saved with the access point's name) if wifi is disconnected, but a known AP is in range. Run periodically
+
+
+Script that will force network manager to connect to a known wifi (connection needs to be saved with the access point's name) if wifi is disconnected, but a known AP is in range. Run periodically.
 Note that the wifi card name (used to get status, etc) is hardcoded to wlan0. Needs nmcli to get its data (parses the output, so it may break in the future).
 
 If multiple known access points are within range, nmcli will return the ones with the highest signal first, so you will try to connect to those first.
+
+This is needed because once you disconnect from a network, Network-Manager has the bad habit not to try to reconnect to a known network. This will force it to do so.
+
 
 Example output (when wifi is disconnected):
 ```
