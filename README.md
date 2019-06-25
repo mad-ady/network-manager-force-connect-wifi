@@ -2,7 +2,7 @@
 
 
 Script that will force network manager to connect to a known wifi (connection needs to be saved with the access point's name) if wifi is disconnected, but a known AP is in range. Run periodically.
-Note that the wifi card name (used to get status, etc) is hardcoded to wlan0. Needs nmcli to get its data (parses the output, so it may break in the future).
+Note that the wifi card name (used to get status, etc) is detected (first wl interface is selected). Needs nmcli to get its data (parses the output, so it may break in the future). Also needs ifmetric to set a metric for the wifi connection (hardcoded to 110). If you have telegram-send installed, it will also send a message through it to tell you what AP it connected to.
 
 If multiple known access points are within range, nmcli will return the ones with the highest signal first, so you will try to connect to those first.
 
